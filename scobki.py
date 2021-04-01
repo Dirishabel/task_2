@@ -1,4 +1,4 @@
-def response_collector(isCorrect: bool, not_close: list, error_char: list, ret_num: str):
+def response_collector(isCorrect: bool, not_close: list, error_char: list):
     if isCorrect:
         print(isCorrect, None, None, ret_num)
     else:
@@ -28,16 +28,16 @@ def isCorrectBrackets(string: str, brackets: list):
                 temp_row.append((string[char], char))
             else:
                 if not temp_row:
-                    return response_collector(False , [string[char], char], [string[char], char], 'Первый')
+                    return response_collector(False , [string[char], char], [string[char], char])
                 temp_char = temp_row.pop()
                 for i in range(0,len(brackets_list),2):
                     if temp_char[0] == brackets_list[i] and string[char] != brackets_list[i+1]:
                         temp_not_close = temp_char
                         temp_error_char = (string[char], iteration)
-                        return response_collector(False , (string[char], iteration), temp_not_close, 'Второй')
+                        return response_collector(False , (string[char], iteration), temp_not_close)
         iteration+=1
         
-    return response_collector(len(temp_row) == 0 , temp_row[-1], temp_row[-1], 'Третий')
+    return response_collector(len(temp_row) == 0 , [string[char], char], temp_row[-1])
 
 input_string = input()
 brackets = input()
