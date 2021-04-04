@@ -1,8 +1,8 @@
 def response_collector(isCorrect: bool, not_close: list, error_char: list):
     if isCorrect:
-        print(isCorrect, None, None, ret_num)
+        print(isCorrect, None, None)
     else:
-        print(isCorrect, tuple(not_close), tuple(error_char), ret_num)
+        print(isCorrect, tuple(not_close), tuple(error_char))
 def isCorrectBrackets(string: str, brackets: list):
     temp_row = []
     brackets_list = []
